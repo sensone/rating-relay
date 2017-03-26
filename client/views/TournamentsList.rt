@@ -1,0 +1,23 @@
+<rt-import name="default" as="TournamentItem" from="../components/TournamentItem" />
+<rt-import name="Table" from="react-bootstrap" />
+
+<div class="container">
+  Tournaments {this.props.viewer.tournamentConnection.edges.length}
+
+  <Table striped bordered condensed hover>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <TournamentItem
+        rt-repeat="edge, index in this.props.viewer.tournamentConnection.edges"
+        key={index}
+        tournament={edge.node}
+        place={index+1}
+      />
+    </tbody>
+  </Table>
+</div>

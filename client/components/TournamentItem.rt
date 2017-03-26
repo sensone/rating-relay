@@ -1,0 +1,8 @@
+<rt-import name="Link" from="react-router" />
+
+<tr>
+  <td>{this.props.place}</td>
+  <td>
+    <Link to="tournament/{this.props.tournament._id}">{this.props.tournament.title}</Link>
+  </td>
+</tr>

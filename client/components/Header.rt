@@ -1,0 +1,25 @@
+<rt-import name="default" as="Nav" from="react-bootstrap/lib/Nav" />
+<rt-import name="default" as="Navbar" from="react-bootstrap/lib/Navbar" />
+<rt-import name="default" as="NavItem" from="react-bootstrap/lib/NavItem" />
+<rt-import name="default" as="MenuItem" from="react-bootstrap/lib/MenuItem" />
+<rt-import name="default" as="NavDropdown" from="react-bootstrap/lib/NavDropdown" />
+<rt-import name="LinkContainer" from="react-router-bootstrap" />
+<rt-import name="Link" from="react-router" />
+
+<Navbar collapseOnSelect>
+  <Navbar.Header>
+    <Navbar.Brand>
+      <Link to="/">Rating</Link>
+    </Navbar.Brand>
+  </Navbar.Header>
+  <Navbar.Collapse>
+    <Nav pullRight>
+      <LinkContainer to="/">
+        <NavItem>Home</NavItem>
+      </LinkContainer>
+      <LinkContainer to="/tournaments">
+        <NavItem>Tournaments</NavItem>
+      </LinkContainer>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>

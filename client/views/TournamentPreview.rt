@@ -1,0 +1,3 @@
+<div rt-scope="this.props.viewer.tournamentById as tournament" class="container">
+  <div>{tournament.title}({tournament.city}) {tournament.date}</div>
+</div>

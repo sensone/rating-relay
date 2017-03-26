@@ -1,0 +1,11 @@
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+  padding-bottom: 60px;
+}
+
+#app {
+  height: 100%;
+}

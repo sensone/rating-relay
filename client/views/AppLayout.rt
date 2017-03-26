@@ -1,0 +1,10 @@
+<rt-import name="default" as="Header" from="../components/Header" />
+<rt-import name="default" as="Footer" from="../components/Footer" />
+
+<div id="app">
+  <div id="wrapper">
+    <Header />
+    {this.props.children}
+  </div>
+  <Footer />
+</div>

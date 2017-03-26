@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    "react-relay",
+    ["import", { "libraryName": "antd", "style": "css" }]
+  ],
+  "presets": ["react", "latest", "stage-0"]
+}
