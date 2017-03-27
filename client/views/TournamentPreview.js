@@ -31,6 +31,14 @@ export default Relay.createContainer(
             weight
             city
             date
+            results {
+              place
+              team
+              players {
+                _id
+                name
+              }
+            }
           }
         }
       `,

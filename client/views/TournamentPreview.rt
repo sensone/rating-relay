@@ -1,3 +1,27 @@
-<div rt-scope="this.props.viewer.tournamentById as tournament" class="container">
-  <div>{tournament.title}({tournament.city}) {tournament.date}</div>
+<rt-import name="Table" from="react-bootstrap" />
+<rt-import name="Link" from="react-router" />
+
+<div class="container">
+  <div rt-scope="this.props.viewer.tournamentById as tournament" class="container">
+    <div>{tournament.title}({tournament.city}) {tournament.date}</div>
+  </div>
+
+
+  <Table striped bordered condensed hover>
+    <thead>
+      <tr>
+        <th>Place</th>
+        <th>Player</th>
+      </tr>
+    </thead>
+    <tbody rt-scope="this.props.viewer.tournamentById.results as results">
+      <tr rt-repeat="result, index in results" key={index}>
+        <td>{result.place}</td>
+        <td>
+          <Link to="/player/{result.players[0]._id}">{result.players[0].name}</Link>
+          <Link rt-if="result.players[1]" to="/player/{result.players[1]._id}"> / {result.players[1].name}</Link>
+        </td>
+      </tr>
+    </tbody>
+  </Table>
 </div>
