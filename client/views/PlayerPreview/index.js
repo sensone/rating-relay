@@ -1,21 +1,5 @@
-import React from 'react';
 import Relay from 'react-relay';
-
-import template from './PlayerPreview.rt';
-
-class PlayerPreview extends React.Component {
-  static propTypes = {
-    viewer: React.PropTypes.object,
-  }
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return template.call(this);
-  }
-}
+import PlayerPreview from './PlayerPreview';
 
 export default Relay.createContainer(
   PlayerPreview,
@@ -30,9 +14,22 @@ export default Relay.createContainer(
             name
             gender
             city
+            tournaments {
+              _id
+              title
+              date
+              players_count
+              type
+              weight
+              operable
+              result {
+                place
+                points
+              }
+            }
           }
         }
       `,
     },
   },
-)
+);

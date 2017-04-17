@@ -56,6 +56,7 @@
     "react-router-relay": "0.13.3",
     "react-templates": "^0.6.1",
     "react-templates-loader": "^0.6.1",
+    "react-typeahead-component": "^0.9.0",
     "semantic-release": "^6.3.2",
     "style-loader": "^0.13.1",
     "text2smiles": "^1.2.1",

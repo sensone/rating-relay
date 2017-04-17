@@ -1,0 +1,47 @@
+<rt-import name="default" as="PlayerItem" from="../../components/PlayerItem" />
+<rt-import name="Table" from="react-bootstrap" />
+
+<div class="container">
+  PlayersList of {this.props.viewer.playerConnection.edges.length}
+
+  <Table striped bordered condensed hover>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th className="sortable" onClick={this.handleSort.bind(this,'RATING_OS_COMBINED')}>
+          OS
+          <span rt-if="this.isTheSameField('RATING_OS_COMBINED')"
+                className="{`sorticon glyphicon glyphicon-arrow-${this.getSortingArrow('RATING_OS_COMBINED')} pull-right`}">
+          </span>
+        </th>
+        <th className="sortable" onClick={this.handleSort.bind(this,'RATING_OD_COMBINED')}>
+          OD
+          <span rt-if="this.isTheSameField('RATING_OD_COMBINED')"
+                className="{`sorticon glyphicon glyphicon-arrow-${this.getSortingArrow('RATING_OD_COMBINED')} pull-right`}">
+          </span>
+        </th>
+        <th className="sortable" onClick={this.handleSort.bind(this,'RATING_DYP')}>
+          DYP
+          <span rt-if="this.isTheSameField('RATING_DYP')"
+                className="{`sorticon glyphicon glyphicon-arrow-${this.getSortingArrow('RATING_DYP')} pull-right`}">
+          </span>
+        </th>
+        <th className="sortable" onClick={this.handleSort.bind(this,'RATING_COMBINED')}>
+          COMBINED
+          <span rt-if="this.isTheSameField('RATING_COMBINED')"
+                className="{`sorticon glyphicon glyphicon-arrow-${this.getSortingArrow('RATING_COMBINED')} pull-right`}">
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <PlayerItem
+        rt-repeat="edge, index in this.props.viewer.playerConnection.edges"
+        key={index}
+        player={edge.node}
+        place={index+1}
+      />
+    </tbody>
+  </Table>
+</div>

@@ -30,10 +30,11 @@ export default Relay.createContainer(
             title
             weight
             city
+            players_count
             date
             results {
               place
-              team
+              points
               players {
                 _id
                 name

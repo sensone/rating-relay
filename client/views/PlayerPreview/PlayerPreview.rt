@@ -1,0 +1,33 @@
+<rt-import name="Table" from="react-bootstrap" />
+<rt-import name="Link" from="react-router" />
+
+<div rt-scope="this.props.viewer.playerById as player" class="container">
+  <div>{player.name}({player.city})</div>
+
+  <Table striped bordered condensed hover>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Weight</th>
+        <th>Place</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr rt-repeat="tournament, index in player.tournaments" key={index}>
+        <td>{index + 1}</td>
+        <td>
+          <Link to="/tournament/{tournament._id}">{tournament.title}</Link>
+        </td>
+        <td>{tournament.date}</td>
+        <td>{tournament.type}</td>
+        <td>{tournament.weight}</td>
+        <td>{tournament.result.place}/{tournament.players_count}</td>
+        <td>{Math.round(tournament.result.points)}</td>
+      </tr>
+    </tbody>
+  </Table>
+</div>

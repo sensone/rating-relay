@@ -1,3 +1,0 @@
-<div rt-scope="this.props.viewer.playerById as player" class="container">
-  <div>{player.name}({player.city})</div>
-</div>

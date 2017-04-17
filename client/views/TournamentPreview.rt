@@ -6,21 +6,22 @@
     <div>{tournament.title}({tournament.city}) {tournament.date}</div>
   </div>
 
-
-  <Table striped bordered condensed hover>
-    <thead>
+  <Table striped bordered condensed hover rt-scope="this.props.viewer.tournamentById.results as results">
+    <thead rt-scope="results[0].players.length>1 as team">
       <tr>
         <th>Place</th>
-        <th>Player</th>
+        <th>{team ? 'Team' : 'Player'}</th>
+        <th>Points</th>
       </tr>
     </thead>
-    <tbody rt-scope="this.props.viewer.tournamentById.results as results">
+    <tbody >
       <tr rt-repeat="result, index in results" key={index}>
         <td>{result.place}</td>
         <td>
           <Link to="/player/{result.players[0]._id}">{result.players[0].name}</Link>
           <Link rt-if="result.players[1]" to="/player/{result.players[1]._id}"> / {result.players[1].name}</Link>
         </td>
+        <td>{result.points}</td>
       </tr>
     </tbody>
   </Table>

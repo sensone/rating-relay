@@ -25,7 +25,18 @@ export default Relay.createContainer(
       player: () => Relay.QL`
         fragment on Player {
           _id
+          id
           name
+          rating {
+            combined
+            os {
+              combined
+            }
+            dyp
+            od {
+              combined
+            }
+          }
         }
       `,
     },
