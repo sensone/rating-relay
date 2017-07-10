@@ -1,7 +1,6 @@
 {
   "plugins": [
-    "react-relay",
-    ["import", { "libraryName": "antd", "style": "css" }]
+    ["relay", {"schema": "./schema.graphql.txt"}]
   ],
   "presets": ["react", "latest", "stage-0"]
 }

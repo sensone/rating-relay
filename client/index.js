@@ -1,22 +1,15 @@
 import { Router, Route, browserHistory, applyRouterMiddleware } from 'react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Relay from 'react-relay';
+import Relay from 'react-relay/classic';
 import AppLayout from './views/AppLayout';
 import PlayersList from './views/PlayersList';
 import TournamentsList from './views/TournamentsList';
-
 import PlayerPreview from './views/PlayerPreview';
 import TournamentPreview from './views/TournamentPreview';
-
-
 import NoFound from './views/NoFound';
-import './index.css';
-import './bootstrap-ubuntu.css';
-
-
+import './style.css';
 import useRelay from 'react-router-relay'
-import './index.css'
 
 Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer('http://localhost:3009/graphql')

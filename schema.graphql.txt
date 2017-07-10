@@ -1,0 +1,1219 @@
+input _idOperatorsFilterFindManyPlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOnePlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterPlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveManyPlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveManyTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveOnePlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveOneTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUpdateManyPlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUpdateManyTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUpdateOnePlayerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUpdateOneTournamentInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+# The `ConnectionCursor` is String type, that represents a point of record in data
+# set.  Due this point, you may request previous or next records.
+scalar ConnectionCursor
+
+input CreateOnePlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+}
+
+type CreateOnePlayerPayload {
+  # Created document ID
+  recordId: MongoID
+
+  # Created document
+  record: Player
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input CreateOneTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+}
+
+type CreateOneTournamentPayload {
+  # Created document ID
+  recordId: MongoID
+
+  # Created document
+  record: Tournament
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+enum EnumPlayerGender {
+  male
+  female
+}
+
+input FilterFindManyPlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterFindManyPlayerInput
+}
+
+input FilterFindManyTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterFindManyTournamentInput
+}
+
+input FilterFindOnePlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterFindOnePlayerInput
+}
+
+input FilterFindOneTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterFindOneTournamentInput
+}
+
+input FilterPlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterPlayerInput
+}
+
+input FilterRemoveManyPlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterRemoveManyPlayerInput
+}
+
+input FilterRemoveManyTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterRemoveManyTournamentInput
+}
+
+input FilterRemoveOnePlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterRemoveOnePlayerInput
+}
+
+input FilterRemoveOneTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterRemoveOneTournamentInput
+}
+
+input FilterTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterTournamentInput
+}
+
+input FilterUpdateManyPlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterUpdateManyPlayerInput
+}
+
+input FilterUpdateManyTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterUpdateManyTournamentInput
+}
+
+input FilterUpdateOnePlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterUpdateOnePlayerInput
+}
+
+input FilterUpdateOneTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID
+
+  # List of fields that can be filtered via operators
+  _operators: OperatorsFilterUpdateOneTournamentInput
+}
+
+# The `ID` scalar type represents a unique MongoDB identifier in collection.
+# MongoDB by default use 12-byte ObjectId value
+# (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
+# also may accepts string or integer as correct values for _id field.
+scalar MongoID
+
+type Mutation {
+  # Create one document with mongoose defaults, setters, hooks and validation
+  playerCreate(input: RelayCreateOnePlayerInput!): CreateOnePlayerPayload
+
+  # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
+  playerUpdateById(input: RelayUpdateByIdPlayerInput!): UpdateByIdPlayerPayload
+
+  # Update one document: 1) Retrieve one document via findOne. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
+  playerUpdateOne(input: RelayUpdateOnePlayerInput!): UpdateOnePlayerPayload
+
+  # Update many documents without returning them: Use Query.update mongoose
+  # method. Do not apply mongoose defaults, setters, hooks and validation. 
+  playerUpdateMany(input: RelayUpdateManyPlayerInput!): UpdateManyPlayerPayload
+
+  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  playerRemoveById(input: RelayRemoveByIdPlayerInput!): RemoveByIdPlayerPayload
+
+  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  playerRemoveOne(input: RelayRemoveOnePlayerInput!): RemoveOnePlayerPayload
+
+  # Remove many documents without returning them: Use Query.remove mongoose
+  # method. Do not apply mongoose defaults, setters, hooks and validation. 
+  playerRemoveMany(input: RelayRemoveManyPlayerInput!): RemoveManyPlayerPayload
+
+  # Create one document with mongoose defaults, setters, hooks and validation
+  tournamentCreate(input: RelayCreateOneTournamentInput!): CreateOneTournamentPayload
+
+  # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
+  tournamentUpdateById(input: RelayUpdateByIdTournamentInput!): UpdateByIdTournamentPayload
+
+  # Update one document: 1) Retrieve one document via findOne. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
+  tournamentUpdateOne(input: RelayUpdateOneTournamentInput!): UpdateOneTournamentPayload
+
+  # Update many documents without returning them: Use Query.update mongoose
+  # method. Do not apply mongoose defaults, setters, hooks and validation. 
+  tournamentUpdateMany(input: RelayUpdateManyTournamentInput!): UpdateManyTournamentPayload
+
+  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  tournamentRemoveById(input: RelayRemoveByIdTournamentInput!): RemoveByIdTournamentPayload
+
+  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  tournamentRemoveOne(input: RelayRemoveOneTournamentInput!): RemoveOneTournamentPayload
+
+  # Remove many documents without returning them: Use Query.remove mongoose
+  # method. Do not apply mongoose defaults, setters, hooks and validation. 
+  tournamentRemoveMany(input: RelayRemoveManyTournamentInput!): RemoveManyTournamentPayload
+}
+
+# An object, that can be fetched by the globally unique ID among all types.
+interface Node {
+  # The globally unique ID among all types.
+  id: ID!
+}
+
+input OperatorsFilterFindManyPlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterFindManyPlayerInput
+}
+
+input OperatorsFilterFindManyTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterFindManyTournamentInput
+}
+
+input OperatorsFilterFindOnePlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterFindOnePlayerInput
+}
+
+input OperatorsFilterFindOneTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterFindOneTournamentInput
+}
+
+input OperatorsFilterPlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterPlayerInput
+}
+
+input OperatorsFilterRemoveManyPlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterRemoveManyPlayerInput
+}
+
+input OperatorsFilterRemoveManyTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterRemoveManyTournamentInput
+}
+
+input OperatorsFilterRemoveOnePlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterRemoveOnePlayerInput
+}
+
+input OperatorsFilterRemoveOneTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterRemoveOneTournamentInput
+}
+
+input OperatorsFilterTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterTournamentInput
+}
+
+input OperatorsFilterUpdateManyPlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterUpdateManyPlayerInput
+}
+
+input OperatorsFilterUpdateManyTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterUpdateManyTournamentInput
+}
+
+input OperatorsFilterUpdateOnePlayerInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterUpdateOnePlayerInput
+}
+
+input OperatorsFilterUpdateOneTournamentInput {
+  # Filter value by operator(s)
+  _id: _idOperatorsFilterUpdateOneTournamentInput
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type Player implements Node {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRating
+  rating_diff: PlayerRating
+  _id: MongoID
+
+  # The globally unique ID among all types
+  id: ID!
+  tournaments(sortBy: String, type: String): [TournamentForPlayer]
+}
+
+# A connection to a list of items.
+type PlayerConnection {
+  # Total object count.
+  count: Int
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Information to aid in pagination.
+  edges: [PlayerEdge]
+}
+
+# An edge in a connection.
+type PlayerEdge {
+  # The item at the end of the edge
+  node: Player
+
+  # A cursor for use in pagination
+  cursor: ConnectionCursor!
+}
+
+type PlayerRating {
+  os: PlayerRatingOs
+  od: PlayerRatingOs
+  dyp: Float
+  combined: Float
+}
+
+input PlayerRatingInput {
+  os: PlayerRatingOsInput
+  od: PlayerRatingOsInput
+  dyp: Float
+  combined: Float
+}
+
+type PlayerRatingOs {
+  month: Float
+  year: Float
+  itsf: Float
+  combined: Float
+}
+
+input PlayerRatingOsInput {
+  month: Float
+  year: Float
+  itsf: Float
+  combined: Float
+}
+
+type Query {
+  # Fetches an object that has globally unique ID among all types
+  node(
+    # The globally unique ID among all types
+    id: ID!
+  ): Node
+
+  # Data under client context
+  viewer: Viewer
+}
+
+input RelayCreateOnePlayerInput {
+  record: CreateOnePlayerInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayCreateOneTournamentInput {
+  record: CreateOneTournamentInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveByIdPlayerInput {
+  _id: MongoID!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveByIdTournamentInput {
+  _id: MongoID!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveManyPlayerInput {
+  # Filter by fields
+  filter: FilterRemoveManyPlayerInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveManyTournamentInput {
+  # Filter by fields
+  filter: FilterRemoveManyTournamentInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveOnePlayerInput {
+  # Filter by fields
+  filter: FilterRemoveOnePlayerInput
+  sort: SortRemoveOnePlayerInput
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveOneTournamentInput {
+  # Filter by fields
+  filter: FilterRemoveOneTournamentInput
+  sort: SortRemoveOneTournamentInput
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayUpdateByIdPlayerInput {
+  record: UpdateByIdPlayerInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayUpdateByIdTournamentInput {
+  record: UpdateByIdTournamentInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayUpdateManyPlayerInput {
+  record: UpdateManyPlayerInput!
+
+  # Filter by fields
+  filter: FilterUpdateManyPlayerInput
+  sort: SortUpdateManyPlayerInput
+  skip: Int
+  limit: Int = 1000
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayUpdateManyTournamentInput {
+  record: UpdateManyTournamentInput!
+
+  # Filter by fields
+  filter: FilterUpdateManyTournamentInput
+  sort: SortUpdateManyTournamentInput
+  skip: Int
+  limit: Int = 1000
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayUpdateOnePlayerInput {
+  record: UpdateOnePlayerInput!
+
+  # Filter by fields
+  filter: FilterUpdateOnePlayerInput
+  sort: SortUpdateOnePlayerInput
+  skip: Int
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayUpdateOneTournamentInput {
+  record: UpdateOneTournamentInput!
+
+  # Filter by fields
+  filter: FilterUpdateOneTournamentInput
+  sort: SortUpdateOneTournamentInput
+  skip: Int
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveByIdPlayerPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: Player
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveByIdTournamentPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: Tournament
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveManyPlayerPayload {
+  # Affected documents number
+  numAffected: Int
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveManyTournamentPayload {
+  # Affected documents number
+  numAffected: Int
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveOnePlayerPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: Player
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveOneTournamentPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: Tournament
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+enum SortConnectionPlayerEnum {
+  _ID_DESC
+  _ID_ASC
+
+  # Sorting by combined rating
+  RATING_COMBINED_DESC
+
+  # Sorting by combined rating
+  RATING_COMBINED_ASC
+
+  # Sorting by OS combined rating
+  RATING_OS_COMBINED_DESC
+
+  # Sorting by OS combined rating
+  RATING_OS_COMBINED_ASC
+
+  # Sorting by OD combined rating
+  RATING_OD_COMBINED_DESC
+
+  # Sorting by OD combined rating
+  RATING_OD_COMBINED_ASC
+
+  # Sorting by DYP rating
+  RATING_DYP_DESC
+
+  # Sorting by DYP rating
+  RATING_DYP_ASC
+}
+
+enum SortConnectionTournamentEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+enum SortFindByIdsPlayerInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortFindByIdsTournamentInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortFindManyPlayerInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortFindManyTournamentInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortFindOnePlayerInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortFindOneTournamentInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortRemoveOnePlayerInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortRemoveOneTournamentInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortUpdateManyPlayerInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortUpdateManyTournamentInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortUpdateOnePlayerInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+enum SortUpdateOneTournamentInput {
+  _ID_ASC
+  _ID_DESC
+}
+
+type Tournament implements Node {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentResults]
+  _id: MongoID
+
+  # The globally unique ID among all types
+  id: ID!
+
+  # Availability tournament for analysis
+  operable: Boolean
+
+  # Formated date
+  date_formated: String
+}
+
+# A connection to a list of items.
+type TournamentConnection {
+  # Total object count.
+  count: Int
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Information to aid in pagination.
+  edges: [TournamentEdge]
+}
+
+# An edge in a connection.
+type TournamentEdge {
+  # The item at the end of the edge
+  node: Tournament
+
+  # A cursor for use in pagination
+  cursor: ConnectionCursor!
+}
+
+type TournamentForPlayer implements Node {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  result: TournamentResults
+
+  # Availability tournament for analysis
+  operable: Boolean
+  _id: MongoID
+
+  # The globally unique ID among all types
+  id: ID!
+
+  # Formated date
+  date_formated: String
+}
+
+type TournamentResults {
+  # List of playerIDs
+  team: [String]
+  place: Float
+
+  # Rating points
+  points: Float
+  id: String
+  players(limit: Int = 1000, sort: SortFindByIdsPlayerInput): [Player]
+}
+
+input TournamentTournamentResultsInput {
+  # List of playerIDs
+  team: [String]
+  place: Float
+}
+
+input UpdateByIdPlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+  _id: MongoID!
+}
+
+type UpdateByIdPlayerPayload {
+  # Updated document ID
+  recordId: MongoID
+
+  # Updated document
+  record: Player
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input UpdateByIdTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+  _id: MongoID!
+}
+
+type UpdateByIdTournamentPayload {
+  # Updated document ID
+  recordId: MongoID
+
+  # Updated document
+  record: Tournament
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input UpdateManyPlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+}
+
+type UpdateManyPlayerPayload {
+  # Affected documents number
+  numAffected: Int
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input UpdateManyTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+}
+
+type UpdateManyTournamentPayload {
+  # Affected documents number
+  numAffected: Int
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input UpdateOnePlayerInput {
+  name: String
+  gender: EnumPlayerGender
+  city: String
+  rating: PlayerRatingInput
+  rating_diff: PlayerRatingInput
+}
+
+type UpdateOnePlayerPayload {
+  # Updated document ID
+  recordId: MongoID
+
+  # Updated document
+  record: Player
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input UpdateOneTournamentInput {
+  date: Float
+  title: String
+  weight: String
+  city: String
+  type: String
+  players_count: Float
+  results: [TournamentTournamentResultsInput]
+}
+
+type UpdateOneTournamentPayload {
+  # Updated document ID
+  recordId: MongoID
+
+  # Updated document
+  record: Tournament
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type Viewer {
+  playerById(_id: MongoID!): Player
+  playerByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsPlayerInput): [Player]
+  playerOne(
+    # Filter by fields
+    filter: FilterFindOnePlayerInput
+    skip: Int
+    sort: SortFindOnePlayerInput
+  ): Player
+  playerMany(
+    # Filter by fields
+    filter: FilterFindManyPlayerInput
+    skip: Int
+    limit: Int = 1000
+    sort: SortFindManyPlayerInput
+  ): [Player]
+  playerTotal(
+    # Filter by fields
+    filter: FilterPlayerInput
+  ): Int
+  playerConnection(
+    # Forward pagination argument for returning at most first edges
+    first: Int
+
+    # Forward pagination argument for returning at most first edges
+    after: ConnectionCursor
+
+    # Backward pagination argument for returning at most last edges
+    last: Int
+
+    # Backward pagination argument for returning at most last edges
+    before: ConnectionCursor
+
+    # Filter by fields
+    filter: FilterFindManyPlayerInput
+
+    # Sort argument for data ordering
+    sort: SortConnectionPlayerEnum = _ID_DESC
+  ): PlayerConnection
+  tournamentById(_id: MongoID!): Tournament
+  tournamentByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsTournamentInput): [Tournament]
+  tournamentOne(
+    # Filter by fields
+    filter: FilterFindOneTournamentInput
+    skip: Int
+    sort: SortFindOneTournamentInput
+  ): Tournament
+  tournamentMany(
+    # Filter by fields
+    filter: FilterFindManyTournamentInput
+    skip: Int
+    limit: Int = 1000
+    sort: SortFindManyTournamentInput
+  ): [Tournament]
+  tournamentTotal(
+    # Filter by fields
+    filter: FilterTournamentInput
+  ): Int
+  tournamentConnection(
+    # Forward pagination argument for returning at most first edges
+    first: Int
+
+    # Forward pagination argument for returning at most first edges
+    after: ConnectionCursor
+
+    # Backward pagination argument for returning at most last edges
+    last: Int
+
+    # Backward pagination argument for returning at most last edges
+    before: ConnectionCursor
+
+    # Filter by fields
+    filter: FilterFindManyTournamentInput
+
+    # Sort argument for data ordering
+    sort: SortConnectionTournamentEnum = _ID_DESC
+  ): TournamentConnection
+}

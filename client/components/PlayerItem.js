@@ -1,5 +1,5 @@
 import React from 'react';
-import Relay from 'react-relay';
+import Relay from 'react-relay/classic';
 
 import template from './PlayerItem.rt';
 
@@ -17,6 +17,7 @@ class PlayerItem extends React.Component {
     return template.call(this);
   }
 }
+console.log(Relay)
 
 export default Relay.createContainer(
   PlayerItem,

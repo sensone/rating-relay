@@ -1,4 +1,4 @@
-import Relay from 'react-relay';
+import Relay from 'react-relay/classic';
 import PlayerPreview from './PlayerPreview';
 
 export default Relay.createContainer(
@@ -18,6 +18,7 @@ export default Relay.createContainer(
               _id
               title
               date
+              date_formated
               players_count
               type
               weight

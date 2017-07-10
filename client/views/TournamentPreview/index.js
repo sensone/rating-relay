@@ -1,21 +1,5 @@
-import React from 'react';
-import Relay from 'react-relay';
-
-import template from './TournamentPreview.rt';
-
-class TournamentPreview extends React.Component {
-  static propTypes = {
-    viewer: React.PropTypes.object,
-  }
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return template.call(this);
-  }
-}
+import Relay from 'react-relay/classic';
+import TournamentPreview from './TournamentPreview';
 
 export default Relay.createContainer(
   TournamentPreview,

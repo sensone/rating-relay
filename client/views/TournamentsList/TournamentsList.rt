@@ -1,4 +1,4 @@
-<rt-import name="default" as="TournamentItem" from="../components/TournamentItem" />
+<rt-import name="default" as="TournamentItem" from="../../components/TournamentItem" />
 <rt-import name="Table" from="react-bootstrap" />
 
 <div class="container">

@@ -22,7 +22,7 @@
         <td>
           <Link to="/tournament/{tournament._id}">{tournament.title}</Link>
         </td>
-        <td>{tournament.date}</td>
+        <td>{tournament.date_formated}</td>
         <td>{tournament.type}</td>
         <td>{tournament.weight}</td>
         <td>{tournament.result.place}/{tournament.players_count}</td>
